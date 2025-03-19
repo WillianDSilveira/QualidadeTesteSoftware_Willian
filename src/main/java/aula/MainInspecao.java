@@ -101,7 +101,7 @@ public class MainInspecao {
 	// retorna FALSE, se pessoa tiver problemas nos seus dados, ou TRUE, se tudo estiver sido OK.
 	public  boolean validaPessoa(Pessoa pessoa) {
 		boolean ret = false;
-		if(pessoa.getNome().equals("") || pessoa.getNome().length() < 4 ) {
+		if(pessoa.getNome().equals("") || pessoa.getNome().length() < 2 ) {
 			ret = false;
 		}else if(pessoa.getSalario() < 0 || pessoa.getSalario() > 10000) {
 			ret = false;
@@ -115,7 +115,7 @@ public class MainInspecao {
 	public  float calculaDesconto(float salario) {
 		if(salario > 0 &&  salario <= 5000) {
 			return salario * 0.02f;
-		}else if(salario > 5000 &&  salario < 10000) {
+		}else if(salario > 5000 &&  salario <= 10000) {
 			return salario * 0.05f;
 		}
 		return 0;
