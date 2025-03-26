@@ -57,15 +57,19 @@ public class Calculadora {
 	public ResultadoCalculoVO multiplicacao(List<Double> valores) {		
 		
 		if(Objects.isNull(valores)) {
-			return  new ResultadoCalculoVO(0d,true,"lista vazia");
+			return new ResultadoCalculoVO(0d,true,"lista nula");
+		}
+		
+		if(valores.isEmpty()) {
+			return new ResultadoCalculoVO(0d, true, "lista vazia");
 		}
 		
 		if(valores.size() > 5) {
-			return  new ResultadoCalculoVO(0d,true,"Tamanho maximo de elementos [5]");
+			return new ResultadoCalculoVO(0d,true,"Tamanho maximo de elementos [5]");
 		}
 		
 		
-		var mult = 0d;
+		var mult = 1d;
 		for(Double valor : valores) {
 			mult = mult * valor;
 		}

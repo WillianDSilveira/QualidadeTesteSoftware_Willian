@@ -2,6 +2,8 @@ package aula;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+import java.util.ArrayList;
+
 import org.junit.Assert;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
@@ -75,5 +77,84 @@ class CalculadoraTest {
 		}
 			
 	}	
+	
+	@DisplayName("Deve retornar mensagem de erro = 'lista null' quando tem uma lista NULL")
+	@Test
+	public void testMultiplicacao() {
+		// Arrange
+		Calculadora calc = new Calculadora();
+		ArrayList<Double> entrada1 = null;
+		
+		// Ack 
+		ResultadoCalculoVO resultado = calc.multiplicacao(entrada1);
+							
+		// Assertion
+		
+		Assertions.assertEquals("lista nula", resultado.mensagemError());		
+			
+	}	
+	
+	@DisplayName("Deve retornar erro quando exceder o numero de elementos ")
+	@Test
+	public void testMultiplicacao1() {
+		// Arrange
+		Calculadora calc = new Calculadora();
+		ArrayList<Double> entrada = new ArrayList<Double>();
+		entrada.add(1d);
+		entrada.add(1d);
+		entrada.add(1d);
+		entrada.add(1d);
+		entrada.add(1d);	
+		entrada.add(1d);
+		
+		
+		// Ack 
+		ResultadoCalculoVO resultado = calc.multiplicacao(entrada);
+							
+		// Assertion
+		
+		Assertions.assertEquals("Tamanho maximo de elementos [5]", resultado.mensagemError());
+		
+		
+			
+	}	
+	
+	@DisplayName("Deve calcular a multiplicacao")
+	@Test
+	public void testMultiplicacao2() {
+		// Arrange
+		Calculadora calc = new Calculadora();
+		ArrayList<Double> entrada1 = new ArrayList<Double>();
+		entrada1.add(1d);
+		entrada1.add(2d);
+		entrada1.add(3d);
+		entrada1.add(4d);
+		entrada1.add(5d);
+		Double resultadoEsperado = 120d;
+		
+		// Ack 
+		ResultadoCalculoVO resultado = calc.multiplicacao(entrada1);
+							
+		// Assertion
+		
+		Assertions.assertEquals(resultadoEsperado, resultado.resultado());		
+			
+	}	
+	
+	@DisplayName("Deve retornar o valor 0 pois a lista e vazia.")
+	@Test
+	public void testMultiplicacao3() {
+		// arrange
+		Calculadora calc = new Calculadora();
+		ArrayList<Double> entrada1 =  new ArrayList<Double>();		
+		Double resultadoEsperado = 0d;
+				
+		// ack					
+		ResultadoCalculoVO resultado = calc.multiplicacao(entrada1);
+		
+		// assertion
+		Assertions.assertEquals(resultadoEsperado, resultado.resultado());
+
+	}
 
 }
