@@ -2,19 +2,26 @@ package aula;
 
 import io.opentelemetry.exporter.logging.SystemOutLogRecordExporter;
 
-public class ExercicioE1 {
+public class Aluno {
 	private String name;
 	private int idade;
 	private int mes;
 	private int anoNascimento;
 	
 	
+	public Aluno(String name, int idade, int mes, int anoNascimento) {
+		setName(name);
+		setIdade(idade);
+		setMes(mes);
+		setAnoNascimento(anoNascimento);
+	}
 	public String getName() {
 		return name;
 	}
 	public void setName(String name) {
-		if(name.isEmpty()) {
-			return "erro";		
+		if(name == null || name.trim().isEmpty()) {
+			System.out.println("Você precisa digitar um nome");
+			return; 
 		}
 		this.name = name;
 	}
@@ -22,6 +29,10 @@ public class ExercicioE1 {
 		return idade;
 	}
 	public void setIdade(int idade) {
+		if (idade < 18) {
+			System.out.println("A idade deve ser 18 anos ou mais.");
+            return;
+        }
 		this.idade = idade;
 	}
 	public int getMes() {
