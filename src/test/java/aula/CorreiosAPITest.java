@@ -32,9 +32,20 @@ class CorreiosAPITest {
 		// assert
 		assertEquals(endereco, resultado);
 	}
-	
-	@Test
-	public void testInserirCepInvalido() {
-		
-	}
+//	@Test
+//	public void testInserirCepInvalido() {
+//		// arrange
+//		String Cep = "000000000";
+//		Endereco enderecoNaoEncontrado = new Endereco();
+//		enderecoNaoEncontrado.se
+//		
+//		// configura o mock
+//		when(correiosApiServico.buscar(Cep)).thenReturn(enderecoNaoEncontrado);
+//		// act
+//		Endereco resultado = correiosApiServico.buscar(Cep);
+//		
+//		// assert
+//		assertEquals(enderecoNaoEncontrado, resultado);
+//		
+//	}
 }

@@ -27,7 +27,7 @@ public class SeleniumTest {
     
       static WebDriver driver = null;
       
-      private static String namePaginaPrincipal ;
+      private static String namePaginaPrincipal;
     public SeleniumTest() {
     }
     
